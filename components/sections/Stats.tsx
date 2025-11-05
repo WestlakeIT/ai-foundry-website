@@ -42,7 +42,12 @@ export default function Stats() {
     return () => observer.disconnect();
   }, []);
 
-  const counterValues = IMPACT_METRICS.map((m, i) => useCounter(m.value, inView[i]));
+  // Call hooks individually - cannot use .map() for hooks
+  const value0 = useCounter(IMPACT_METRICS[0].value, inView[0]);
+  const value1 = useCounter(IMPACT_METRICS[1].value, inView[1]);
+  const value2 = useCounter(IMPACT_METRICS[2].value, inView[2]);
+  const value3 = useCounter(IMPACT_METRICS[3].value, inView[3]);
+  const counterValues = [value0, value1, value2, value3];
 
   return (
     <section className="bg-darkLighter py-24">
