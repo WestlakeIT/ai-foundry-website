@@ -8,11 +8,26 @@ export default function Hero() {
     <section id="home" className="min-h-[100svh] flex items-center justify-center pt-32 pb-20 px-6">
       <div className="mx-auto w-full max-w-[1400px] text-center">
         <motion.h1
-          className="text-[clamp(3.5rem,9vw,7rem)] font-black leading-[1] tracking-tight text-white animate-float"
+          className="text-[clamp(3.5rem,9vw,7rem)] font-black leading-[1] tracking-tight text-white"
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          whileInView={{ 
+            opacity: 1, 
+            y: 0,
+          }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          animate={{
+            scale: [1, 1.02, 1],
+          }}
+          transition={{
+            opacity: { duration: 0.6 },
+            y: { duration: 0.6 },
+            scale: { 
+              duration: 4, 
+              repeat: Infinity, 
+              ease: "easeInOut",
+              delay: 0.6,
+            },
+          }}
         >
           Your AI Vision.
           <br />
