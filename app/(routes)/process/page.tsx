@@ -4,8 +4,8 @@ import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 
 export default function ProcessPage() {
-  const painPointsRef = useRef<HTMLDivElement[]>([]);
-  const cardsRef = useRef<HTMLDivElement[]>([]);
+  const painPointsRef = useRef<(HTMLElement | null)[]>([]);
+  const cardsRef = useRef<(HTMLElement | null)[]>([]);
 
   useEffect(() => {
     // Intersection Observer for scroll animations
