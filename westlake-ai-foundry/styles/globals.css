@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #6366f1;
+  --primary-dark: #4f46e5;
+  --accent: #06ffa5;
+  --dark: #0a0a0a;
+  --dark-lighter: #1a1a1a;
+  --text: #ffffff;
+  --text-muted: #9ca3af;
+}
+
+html { scroll-behavior: smooth; }
+body { @apply bg-[color:var(--dark)] text-[color:var(--text)] leading-relaxed overflow-x-hidden; }
+
+/* Animated brand background */
+.animated-bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: theme('backgroundImage.gradientBrand');
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  opacity: 0.1;
+}
+
+/* Utility helpers for transitions */
+.fade-in { opacity: 0; animation: fadeIn 1s ease forwards; }
+.slide-up { opacity: 0; transform: translateY(30px); animation: slideUp 0.8s ease forwards; }
+.float { animation: float 6s ease-in-out infinite; }
+.pulse { animation: pulseFade 2s infinite; }
+
+@keyframes fadeIn { to { opacity: 1; } }
+@keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
+
