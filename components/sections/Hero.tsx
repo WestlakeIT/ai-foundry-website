@@ -8,7 +8,7 @@ export default function Hero() {
     <section id="home" className="min-h-[100svh] flex items-center justify-center pt-32 pb-20 px-6">
       <div className="mx-auto w-full max-w-[1400px] text-center">
         <motion.h1
-          className="text-[clamp(3.5rem,9vw,7rem)] font-black leading-[1] tracking-tight bg-gradient-to-br from-white via-purple-300 to-accent bg-clip-text text-transparent animate-float"
+          className="text-[clamp(3.5rem,9vw,7rem)] font-black leading-[1] tracking-tight text-white animate-float"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
