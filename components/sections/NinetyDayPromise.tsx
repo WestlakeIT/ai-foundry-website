@@ -12,7 +12,7 @@ export default function NinetyDayPromise() {
         <div className="text-center mb-12">
           <h2 className="text-[clamp(2.4rem,4vw,3.2rem)] font-extrabold tracking-tight">The 90-Day Guarantee</h2>
           <p className="mt-4 text-text">
-            <span className="text-accent font-semibold pulse">If we can't get your AI to production in 90 days, we work for free until we do.</span>
+            <span className="text-accent font-semibold pulse">If we can&apos;t get your AI to production in 90 days, we work for free until we do.</span>
           </p>
         </div>
 

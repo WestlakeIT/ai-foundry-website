@@ -2,7 +2,7 @@ export default function Differentiator() {
   return (
     <section className="py-24">
       <div className="mx-auto max-w-[1400px] px-6">
-        <h2 className="text-center text-[clamp(2.4rem,4vw,3.2rem)] font-extrabold tracking-tight mb-16">We Don't Consult. We Build.</h2>
+        <h2 className="text-center text-[clamp(2.4rem,4vw,3.2rem)] font-extrabold tracking-tight mb-16">We Don&apos;t Consult. We Build.</h2>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <div className="rounded-2xl border border-primary/20 bg-darkLighter p-9">
             <div className="mb-4 text-3xl">❌</div>
@@ -10,7 +10,7 @@ export default function Differentiator() {
             <ul className="space-y-3 text-text text-[1.05rem]">
               <li>6-month discovery phase</li>
               <li>200-page strategy document</li>
-              <li>"Further research needed"</li>
+              <li>&ldquo;Further research needed&rdquo;</li>
               <li>You implement alone</li>
               <li>$500K spent, nothing built</li>
             </ul>

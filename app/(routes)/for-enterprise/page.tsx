@@ -10,10 +10,10 @@ export default function ForEnterprisePage() {
         <div className="mt-10 max-w-[800px]">
           <h3 className="mb-4 text-primary">Enterprise Challenges We Solve</h3>
           <div className="space-y-3">
-            <div className="rounded-lg bg-primary/10 p-4">⚡ "Our data is trapped in 20-year-old systems"</div>
-            <div className="rounded-lg bg-primary/10 p-4">⚡ "We need AI but can't risk our operations"</div>
-            <div className="rounded-lg bg-primary/10 p-4">⚡ "Consultants gave us strategies, not solutions"</div>
-            <div className="rounded-lg bg-primary/10 p-4">⚡ "Our competition is moving faster"</div>
+            <div className="rounded-lg bg-primary/10 p-4">⚡ &ldquo;Our data is trapped in 20-year-old systems&rdquo;</div>
+            <div className="rounded-lg bg-primary/10 p-4">⚡ &ldquo;We need AI but can&apos;t risk our operations&rdquo;</div>
+            <div className="rounded-lg bg-primary/10 p-4">⚡ &ldquo;Consultants gave us strategies, not solutions&rdquo;</div>
+            <div className="rounded-lg bg-primary/10 p-4">⚡ &ldquo;Our competition is moving faster&rdquo;</div>
           </div>
         </div>
 

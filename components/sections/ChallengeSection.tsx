@@ -25,7 +25,7 @@ export default function ChallengeSection() {
         </div>
 
         <div className="mt-12 text-center">
-          <div className="text-text mb-4 text-lg">Then let's talk. Today.</div>
+          <div className="text-text mb-4 text-lg">Then let&apos;s talk. Today.</div>
           <Link href="/start-building" className="rounded-full bg-gradient-to-br from-primary to-primaryDark px-8 py-4 text-lg font-semibold text-white shadow-[0_10px_30px_rgba(99,102,241,0.3)] hover:shadow-[0_15px_40px_rgba(99,102,241,0.4)] transition-transform hover:-translate-y-0.5">
             Book Strategy Call
           </Link>

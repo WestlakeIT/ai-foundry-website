@@ -42,6 +42,8 @@ export default function Stats() {
     return () => observer.disconnect();
   }, []);
 
+  const counterValues = IMPACT_METRICS.map((m, i) => useCounter(m.value, inView[i]));
+
   return (
     <section className="bg-darkLighter py-24">
       <div className="mx-auto max-w-[1400px] px-6">
@@ -50,7 +52,7 @@ export default function Stats() {
         </div>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {IMPACT_METRICS.map((m, i) => {
-            const value = useCounter(m.value, inView[i]);
+            const value = counterValues[i];
             return (
               <div
                 key={m.label}

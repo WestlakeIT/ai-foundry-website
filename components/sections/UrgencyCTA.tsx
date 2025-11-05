@@ -14,7 +14,7 @@ export default function UrgencyCTA() {
             Start in 24 Hours
           </Link>
           <Link href="/start-building#assessment" className="rounded-full border-2 border-primary px-9 py-5 text-xl font-semibold text-text hover:bg-primary/10">
-            See If We're a Fit
+            See If We&apos;re a Fit
           </Link>
         </div>
       </div>

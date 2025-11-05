@@ -29,7 +29,7 @@ export default function ProcessPage() {
         <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           <Card className="text-center"><div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent text-white">1</div><h4 className="text-accent">Build in Production</h4><p>No toy prototypes</p></Card>
           <Card className="text-center"><div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent text-white">2</div><h4 className="text-accent">Daily Commits</h4><p>See progress every day</p></Card>
-          <Card className="text-center"><div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent text-white">3</div><h4 className="text-accent">Weekly Demos</h4><p>Never wonder what's happening</p></Card>
+          <Card className="text-center"><div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent text-white">3</div><h4 className="text-accent">Weekly Demos</h4><p>Never wonder what&apos;s happening</p></Card>
           <Card className="text-center"><div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent text-white">4</div><h4 className="text-accent">Your Code, Your IP</h4><p>You own everything</p></Card>
         </div>
 

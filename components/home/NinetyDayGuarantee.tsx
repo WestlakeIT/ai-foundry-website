@@ -123,7 +123,7 @@ export default function NinetyDayGuarantee() {
   const lineProgress = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   const guaranteeRef = useRef<HTMLDivElement | null>(null);
-  const guaranteeInView = useInView(guaranteeRef, { once: true, margin: "-20%" });
+  useInView(guaranteeRef, { once: true, margin: "-20%" });
 
   const statsRef = useRef<HTMLDivElement | null>(null);
   const statsInView = useInView(statsRef, { once: true, margin: "-20%" });

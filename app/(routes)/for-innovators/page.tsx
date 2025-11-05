@@ -12,7 +12,7 @@ export default function ForInnovatorsPage() {
           <Card className="text-center"><div className="text-3xl">💬</div><h3 className="text-accent text-xl">NLP/LLM</h3><p>Custom language models</p></Card>
           <Card className="text-center"><div className="text-3xl">🔮</div><h3 className="text-accent text-xl">Predictive AI</h3><p>Future-state modeling</p></Card>
           <Card className="text-center"><div className="text-3xl">🤖</div><h3 className="text-accent text-xl">Autonomous Systems</h3><p>Self-improving algorithms</p></Card>
-          <Card className="text-center"><div className="text-3xl">🔄</div><h3 className="text-accent text-xl">Cross-Industry AI</h3><p>Apply AI where it's never been</p></Card>
+          <Card className="text-center"><div className="text-3xl">🔄</div><h3 className="text-accent text-xl">Cross-Industry AI</h3><p>Apply AI where it&apos;s never been</p></Card>
         </div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-4">

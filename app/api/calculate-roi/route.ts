@@ -14,7 +14,7 @@ export async function POST(request: Request) {
     const paybackMonths = monthlySavings > 0 ? implementationCost / monthlySavings : null;
     const roi = implementationCost > 0 ? ((monthlySavings * timeframeMonths) - implementationCost) / implementationCost : null;
     return NextResponse.json({ monthlySavings, paybackMonths, roi });
-  } catch (e) {
+  } catch {
     return NextResponse.json({ error: 'Invalid input' }, { status: 400 });
   }
 }
