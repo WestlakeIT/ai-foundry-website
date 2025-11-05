@@ -37,4 +37,29 @@ body { @apply bg-[color:var(--dark)] text-[color:var(--text)] leading-relaxed ov
 
 @keyframes fadeIn { to { opacity: 1; } }
 @keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
+@keyframes drift {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-60px, -60px); }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes floatChaos {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-20px) rotate(2deg); }
+  75% { transform: translateY(20px) rotate(-2deg); }
+}
+.animate-fadeInUp {
+  animation: fadeInUp 1.5s ease;
+}
+.animate-float {
+  animation: floatChaos 4s ease-in-out infinite;
+}
 
