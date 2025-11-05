@@ -7,3 +7,10 @@ dist
 out
 coverage
 
+node_modules/
+.next/
+.vercel/
+.out/
+dist/
+.DS_Store
+.env*
