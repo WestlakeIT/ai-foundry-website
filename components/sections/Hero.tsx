@@ -34,15 +34,29 @@ export default function Hero() {
           Live in 90 Days.
         </motion.h1>
         <p className="mt-7 mx-auto max-w-[820px] text-textMuted text-[clamp(1.2rem,2.2vw,1.75rem)]">
-          We don&apos;t just build AI. We forge ventures, transform enterprises, and turn breakthrough ideas into market reality—fast.
+          We don’t just build AI. We forge ventures, transform enterprises, and turn bold ideas into market reality—fast.
         </p>
         <div className="mt-12 flex flex-wrap items-center justify-center gap-5">
-          <Link href="/start-building" className="btn-primary inline-block rounded-full bg-gradient-to-br from-primary to-primaryDark px-8 py-4 text-lg font-semibold text-white shadow-[0_10px_30px_rgba(99,102,241,0.3)] hover:shadow-[0_15px_40px_rgba(99,102,241,0.4)] transition-transform hover:-translate-y-0.5">
+          <Link href="/start-building" className="inline-block rounded-full bg-gradient-to-r from-[#6b5bff] to-[#6bffd9] px-8 py-4 text-lg font-semibold text-[#06101b] shadow-[0_10px_26px_rgba(107,91,255,0.14)] transition-transform hover:-translate-y-0.5 animate-[gentlePulse_4.5s_ease-in-out_infinite]">
             Start Building
           </Link>
-          <Link href="/process" className="inline-block rounded-full border-2 border-primary px-8 py-4 text-lg font-semibold text-text hover:bg-primary/10">
+          <Link href="/process" className="inline-block rounded-full border-2 border-[rgba(255,255,255,0.07)] backdrop-blur-[4px] px-8 py-4 text-lg font-semibold text-[#e9eef2]">
             See How It Works
           </Link>
+        </div>
+        <div className="mt-20 md:mt-24 flex justify-center">
+          <motion.div
+            initial={{ y: 0 }}
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+            aria-hidden="true"
+          >
+            <div className="flex flex-col items-center">
+              <span className="scroll-arrow" />
+              <span className="scroll-arrow" style={{ animationDelay: '.2s' }} />
+              <span className="scroll-arrow" style={{ animationDelay: '.4s' }} />
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

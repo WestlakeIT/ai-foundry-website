@@ -1,3 +1,34 @@
+@keyframes gentlePulse {
+  0% { box-shadow: 0 8px 20px rgba(107,91,255,0.10); transform: none; }
+  50% { box-shadow: 0 18px 42px rgba(107,91,255,0.18); transform: translateY(-1px); }
+  100% { box-shadow: 0 8px 20px rgba(107,91,255,0.10); transform: none; }
+}
+
+.logo {
+  transition: filter .3s ease;
+}
+
+.logo:hover {
+  filter: brightness(1.2);
+}
+
+.scroll-arrow {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-bottom: 2px solid rgba(255,255,255,0.45);
+  border-right: 2px solid rgba(255,255,255,0.45);
+  transform: rotate(45deg);
+  margin: 8px auto;
+  animation: arrowDown 1.6s infinite;
+  filter: drop-shadow(0 0 6px rgba(255,255,255,0.22));
+}
+
+@keyframes arrowDown {
+  0% { transform: rotate(45deg) translateY(-2px); opacity: 0.3; }
+  50% { transform: rotate(45deg) translateY(4px); opacity: 1; }
+  100% { transform: rotate(45deg) translateY(-2px); opacity: 0.3; }
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,18 +46,17 @@
 html { scroll-behavior: smooth; }
 body { @apply bg-[color:var(--dark)] text-[color:var(--text)] leading-relaxed overflow-x-hidden; }
 
-/* Animated brand background */
-.animated-bg {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  background: theme('backgroundImage.gradientBrand');
-  background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
-  opacity: 0.1;
+/* Dot Grid Background */
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(99, 102, 241, 0.8) 2px, transparent 2px);
+  background-size: 56px 56px;
+  opacity: 0.35;
+  animation: dotPulse 4s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.6; }
 }
 
 /* Utility helpers for transitions */

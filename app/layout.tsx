@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import '../styles/globals.css';
 import Navbar from '@/components/Navbar';
+import ParticlesBackground from '@/components/ui/ParticlesBackground';
+import DotGridBackground from '@/components/ui/DotGridBackground';
 
 export const metadata: Metadata = {
   title: 'Westlake AI Foundry - Your AI Vision. Live in 90 Days.',
@@ -19,7 +21,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className="dark">
       <body className="bg-dark text-text">
-        <div className="animated-bg" />
+        <ParticlesBackground />
+        <DotGridBackground />
         <Navbar />
         <main>{children}</main>
       </body>

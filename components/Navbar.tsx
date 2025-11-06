@@ -23,11 +23,11 @@ export default function Navbar() {
       } fixed top-0 z-50 w-full backdrop-blur-md transition-all`}
     >
       <div className="mx-auto flex max-w-[1600px] items-center justify-between px-8">
-        <Link href="/" className="text-2xl font-extrabold tracking-tight bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent">
+        <Link href="/" className="logo text-3xl md:text-4xl font-extrabold tracking-tight bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent drop-shadow-[0_0_7px_rgba(255,255,255,0.21)]">
           WESTLAKE AI FOUNDRY
         </Link>
 
-        <nav className="hidden items-center gap-10 md:flex text-[1.05rem]">
+        <nav className="hidden items-center gap-10 md:flex text-[1.15rem]">
           <div
             className="relative"
             onMouseEnter={() => setBuildOpen(true)}
@@ -43,7 +43,7 @@ export default function Navbar() {
                   initial={{ opacity: 0, y: -8 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -8 }}
-                  className="absolute left-0 mt-2 w-56 rounded-lg border border-primary/20 bg-darkLighter/95 p-2 shadow-xl"
+                  className="absolute left-0 mt-2 w-56 rounded-lg border border-primary/20 bg-darkLighter/95 p-2 shadow-xl text-[1.05rem]"
                 >
                   <Link href="/for-founders" className="block rounded-md px-4 py-2 text-text hover:bg-primary/10 hover:text-accent">
                     For Founders
@@ -76,7 +76,7 @@ export default function Navbar() {
                   initial={{ opacity: 0, y: -8 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -8 }}
-                  className="absolute left-0 mt-2 w-[500px] rounded-lg border border-primary/20 bg-darkLighter/95 p-6 shadow-xl"
+                  className="absolute left-0 mt-2 w-[500px] rounded-lg border border-primary/20 bg-darkLighter/95 p-6 shadow-xl text-[1.05rem]"
                 >
                   {/* AI & EMERGING TECH Header */}
                   <div className="flex items-center gap-3 mb-6">
@@ -179,7 +179,7 @@ export default function Navbar() {
           </div>
           <Link
             href="/start-building"
-            className="rounded-full bg-gradient-to-br from-primary to-primaryDark px-7 py-3 text-base font-semibold text-white shadow-[0_10px_30px_rgba(99,102,241,0.35)] hover:shadow-[0_15px_40px_rgba(99,102,241,0.45)] transition-transform hover:-translate-y-0.5"
+            className="rounded-full bg-gradient-to-r from-[#6b5bff] to-[#6bffd9] px-7 py-3 text-base font-semibold text-[#06101b] shadow-[0_10px_26px_rgba(107,91,255,0.14)] transition-transform hover:-translate-y-0.5"
           >
             Start Building
           </Link>
