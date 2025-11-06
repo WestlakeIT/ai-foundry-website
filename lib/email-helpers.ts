@@ -43,7 +43,7 @@ export function getUrgencyColor(urgency: string): string {
   return colors[mappedUrgency] || '#6b7280';
 }
 
-export function getRecommendedAction(urgency: string, budget: string): string {
+export function getRecommendedAction(urgency: string, _budget: string): string {
   // Map form urgency values to email template format
   const urgencyMap: Record<string, string> = {
     'immediate': 'Immediate (ASAP)',
