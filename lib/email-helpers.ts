@@ -44,6 +44,7 @@ export function getUrgencyColor(urgency: string): string {
 }
 
 export function getRecommendedAction(urgency: string, _budget: string): string {
+  void _budget; // intentionally unused for now
   // Map form urgency values to email template format
   const urgencyMap: Record<string, string> = {
     'immediate': 'Immediate (ASAP)',
