@@ -8,6 +8,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [buildOpen, setBuildOpen] = useState(false);
+  const [insightsOpen, setInsightsOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -60,6 +61,122 @@ export default function Navbar() {
 
           <Link href="/solutions" className="text-text hover:text-accent">Solutions</Link>
           <Link href="/process" className="text-text hover:text-accent">Process</Link>
+          <div
+            className="relative"
+            onMouseEnter={() => setInsightsOpen(true)}
+            onMouseLeave={() => setInsightsOpen(false)}
+          >
+            <Link href="/insights" className="flex items-center gap-1 text-text hover:text-accent">
+              Insights
+              <span className={`text-sm transition-transform ${insightsOpen ? 'rotate-180' : ''}`}>▼</span>
+            </Link>
+            <AnimatePresence>
+              {insightsOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  className="absolute left-0 mt-2 w-[500px] rounded-lg border border-primary/20 bg-darkLighter/95 p-6 shadow-xl"
+                >
+                  {/* AI & EMERGING TECH Header */}
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-8 h-8 bg-[#ff6b9d] rounded flex items-center justify-center">
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="4" y="4" width="2" height="2" fill="white" rx="1"/>
+                        <rect x="10" y="4" width="2" height="2" fill="white" rx="1"/>
+                        <path d="M5 9H7M9 9H11" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+                      </svg>
+                    </div>
+                    <span className="text-textMuted uppercase tracking-wider text-sm">AI & EMERGING TECH</span>
+                  </div>
+
+                  {/* Insight Articles */}
+                  <div className="space-y-4 mb-4">
+                    {/* Article 1: HOT */}
+                    <Link 
+                      href="/insights/path-to-confident-gen-ai-adoption"
+                      className="block p-4 rounded-lg hover:bg-primary/10 transition-colors group"
+                    >
+                      <div className="flex items-start gap-3">
+                        <span className="px-2 py-1 text-xs font-semibold text-white uppercase bg-[#d97706] rounded">HOT</span>
+                        <div className="flex-1">
+                          <h3 className="font-bold text-text group-hover:text-accent transition-colors mb-1">
+                            The path to confident Gen AI adoption
+                          </h3>
+                          <p className="text-textMuted text-sm">
+                            Bridge the gap between AI leadership and business readiness
+                          </p>
+                        </div>
+                      </div>
+                    </Link>
+
+                    {/* Article 2: RESEARCH */}
+                    <Link 
+                      href="/insights/how-to-get-ready-for-agentic-internet"
+                      className="block p-4 rounded-lg hover:bg-primary/10 transition-colors group"
+                    >
+                      <div className="flex items-start gap-3">
+                        <span className="px-2 py-1 text-xs font-semibold text-white uppercase bg-[#7c3aed] rounded">RESEARCH</span>
+                        <div className="flex-1">
+                          <h3 className="font-bold text-text group-hover:text-accent transition-colors mb-1">
+                            How to get ready for the agentic internet
+                          </h3>
+                          <p className="text-textMuted text-sm">
+                            Develop capabilities needed to create robust agents
+                          </p>
+                        </div>
+                      </div>
+                    </Link>
+
+                    {/* Article 3: NEW (Highlighted) */}
+                    <Link 
+                      href="/insights/responsible-ai-governance-framework"
+                      className="block p-4 rounded-lg border border-gray-600 hover:bg-primary/10 transition-colors group"
+                    >
+                      <div className="flex items-start gap-3">
+                        <span className="px-2 py-1 text-xs font-semibold text-white uppercase bg-[#10b981] rounded">NEW</span>
+                        <div className="flex-1">
+                          <h3 className="font-bold text-text group-hover:text-accent transition-colors mb-1">
+                            Responsible AI governance framework
+                          </h3>
+                          <p className="text-textMuted text-sm">
+                            Best practices for ethical AI implementation
+                          </p>
+                        </div>
+                      </div>
+                    </Link>
+
+                    {/* Article 4: No tag */}
+                    <Link 
+                      href="/insights/extending-lifespan-legacy-systems-genai"
+                      className="block p-4 rounded-lg hover:bg-primary/10 transition-colors group"
+                    >
+                      <div className="flex items-start gap-3">
+                        <div className="flex-1">
+                          <h3 className="font-bold text-text group-hover:text-accent transition-colors mb-1">
+                            Extending the Lifespan of Legacy Systems: How GenAI Transforms Modernization
+                          </h3>
+                          <p className="text-textMuted text-sm">
+                            Discover how Generative AI is revolutionizing legacy system modernization, reducing costs by 50% and timeline by 60%
+                          </p>
+                        </div>
+                      </div>
+                    </Link>
+                  </div>
+
+                  {/* View all insights link */}
+                  <div className="pt-4 border-t border-primary/20">
+                    <Link 
+                      href="/insights"
+                      className="text-primary hover:text-accent transition-colors flex items-center gap-1 text-sm"
+                    >
+                      View all insights →
+                    </Link>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
           <Link
             href="/start-building"
             className="rounded-full bg-gradient-to-br from-primary to-primaryDark px-7 py-3 text-base font-semibold text-white shadow-[0_10px_30px_rgba(99,102,241,0.35)] hover:shadow-[0_15px_40px_rgba(99,102,241,0.45)] transition-transform hover:-translate-y-0.5"
@@ -96,6 +213,16 @@ export default function Navbar() {
               </details>
               <Link href="/solutions" onClick={() => setMobileOpen(false)} className="block text-textMuted hover:text-accent">Solutions</Link>
               <Link href="/process" onClick={() => setMobileOpen(false)} className="block text-textMuted hover:text-accent">Process</Link>
+              <details className="group">
+                <summary className="list-none cursor-pointer text-textMuted">Insights</summary>
+                <div className="ml-3 mt-2 space-y-2">
+                  <Link href="/insights/path-to-confident-gen-ai-adoption" onClick={() => setMobileOpen(false)} className="block text-textMuted hover:text-accent">The path to confident Gen AI adoption</Link>
+                  <Link href="/insights/how-to-get-ready-for-agentic-internet" onClick={() => setMobileOpen(false)} className="block text-textMuted hover:text-accent">How to get ready for the agentic internet</Link>
+                  <Link href="/insights/responsible-ai-governance-framework" onClick={() => setMobileOpen(false)} className="block text-textMuted hover:text-accent">Responsible AI governance framework</Link>
+                  <Link href="/insights/extending-lifespan-legacy-systems-genai" onClick={() => setMobileOpen(false)} className="block text-textMuted hover:text-accent">Extending the Lifespan of Legacy Systems: How GenAI Transforms Modernization</Link>
+                  <Link href="/insights" onClick={() => setMobileOpen(false)} className="block text-primary hover:text-accent">View all insights</Link>
+                </div>
+              </details>
               <Link
                 href="/start-building"
                 onClick={() => setMobileOpen(false)}
