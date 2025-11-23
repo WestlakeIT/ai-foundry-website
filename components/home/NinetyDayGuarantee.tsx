@@ -128,8 +128,10 @@ export default function NinetyDayGuarantee() {
   const statsRef = useRef<HTMLDivElement | null>(null);
   const statsInView = useInView(statsRef, { once: true, margin: "-20%" });
 
-  const total90DaysSeconds = 90 * 24 * 60 * 60;
-  const { days, hours, minutes, seconds } = useCountdown(total90DaysSeconds);
+  const total30DaysSeconds = 30 * 24 * 60 * 60;
+  const { days, hours, minutes, seconds } = useCountdown(total30DaysSeconds);
+
+  const countdownText = "Your AI could be live in";
 
   const projectsDelivered = useCountUp(12, statsInView);
   const avgDays = useCountUp(73, statsInView);
@@ -154,11 +156,11 @@ export default function NinetyDayGuarantee() {
         <div className="text-center mb-14">
           <h2 className="font-extrabold tracking-tight leading-[0.95] text-center">
             <span className="block text-[clamp(2.8rem,6vw,5rem)] sm:text-[clamp(4rem,6vw,6rem)] md:text-[clamp(5rem,6vw,7rem)] bg-gradient-to-r from-white via-primary to-accent bg-clip-text text-transparent">
-              90-Day Guarantee
+              Warp Speed Development
             </span>
           </h2>
           <p className="mt-4 text-text text-[clamp(1.05rem,1.6vw,1.25rem)] max-w-3xl mx-auto">
-            From zero to production in 90 days. Engineered sprints. Ruthless execution. No excuses.
+            From zero to production in record time. 30 days for MVPs. 90 days for enterprise.
           </p>
         </div>
 
@@ -172,24 +174,27 @@ export default function NinetyDayGuarantee() {
           <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
               <div className="text-[2rem] md:text-[2.6rem] font-black leading-tight">
-                We ship real, production systems in 90 days — or we work for free until we do.
+                We ship 10x faster than industry standard — guaranteed.
               </div>
-              <div className="mt-6 flex flex-wrap gap-3 text-sm text-text">
-                <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-darkLighter px-4 py-2">
-                  <span className="text-accent">✓</span> Fixed 12-week plan
-                </span>
-                <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-darkLighter px-4 py-2">
-                  <span className="text-accent">✓</span> Production-first architecture
-                </span>
-                <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-darkLighter px-4 py-2">
-                  <span className="text-accent">✓</span> No hand-off chaos
-                </span>
+              <div className="mt-6 flex flex-col gap-3 text-sm text-text">
+                <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-darkLighter px-4 py-2">
+                  <span className="text-accent">-</span> Simple AI: 30 days
+                </div>
+                <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-darkLighter px-4 py-2">
+                  <span className="text-accent">-</span> Complex Systems: 60 days
+                </div>
+                <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-darkLighter px-4 py-2">
+                  <span className="text-accent">-</span> Enterprise Scale: 90 days
+                </div>
+                <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-darkLighter px-4 py-2">
+                  <span className="text-accent">-</span> Consultants: Still planning
+                </div>
               </div>
             </div>
             {/* Countdown Timer */}
             <div className="md:justify-self-end">
               <div className="text-center">
-                <div className="text-textMuted mb-2">Time to your launch window</div>
+                <div className="text-textMuted mb-2">{countdownText}</div>
                 <div className="grid grid-cols-4 gap-3">
                   {[{label:'DAYS',value:days},{label:'HRS',value:hours},{label:'MIN',value:minutes},{label:'SEC',value:seconds}].map((t) => (
                     <div key={t.label} className="rounded-xl bg-darkLighter border border-primary/30 p-4">
@@ -203,7 +208,7 @@ export default function NinetyDayGuarantee() {
                   className="mt-6 inline-block bg-accent text-dark font-black rounded-full px-8 py-4 text-lg shadow-[0_10px_40px_rgba(6,255,165,0.4)] hover:shadow-[0_14px_50px_rgba(6,255,165,0.6)] transition-transform"
                 >
                   <motion.span whileHover={{ scale: 1.1 }} transition={{ type: 'spring', stiffness: 300 }}>
-                    Start the 90-Day Sprint
+                    Start Your AI Sprint
                   </motion.span>
                 </Link>
               </div>
@@ -217,13 +222,14 @@ export default function NinetyDayGuarantee() {
         {/* Comparison Bar */}
         <div className="mb-12 grid grid-cols-1 md:grid-cols-3 gap-4">
           {[
-            { label: "180 days", sub: "Industry", tone: "text-text" },
-            { label: "90 days", sub: "Us", tone: "text-accent" },
-            { label: "Never", sub: "Consultants", tone: "text-textMuted" }
+            { label: "6-18 months", sub: "Industry Standard", tone: "text-text" },
+            { label: "30-90 days", sub: "Westlake Speed", detail: "(Scope-based)", tone: "text-accent" },
+            { label: "Never", sub: "Traditional Consulting", tone: "text-textMuted" }
           ].map((c) => (
             <div key={c.sub} className="rounded-2xl border border-primary/30 bg-darkLighter p-6 text-center hover:border-accent transition-colors">
               <div className={`text-[2rem] md:text-[2.6rem] font-extrabold ${c.tone}`}>{c.label}</div>
               <div className="text-textMuted tracking-[0.18em] text-xs mt-1">{c.sub}</div>
+              {c.detail && <div className="text-textMuted text-xs mt-1">{c.detail}</div>}
             </div>
           ))}
         </div>

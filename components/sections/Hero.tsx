@@ -31,7 +31,7 @@ export default function Hero() {
         >
           Your AI Vision.
           <br />
-          Live in 90 Days.
+          Live in 30 Days.
         </motion.h1>
         <p className="mt-7 mx-auto max-w-[820px] text-textMuted text-[clamp(1.2rem,2.2vw,1.75rem)]">
           We don’t just build AI. We forge ventures, transform enterprises, and turn bold ideas into market reality—fast.

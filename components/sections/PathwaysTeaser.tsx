@@ -17,7 +17,7 @@ const PATHS: PathCard[] = [
     title: 'FOUNDERS',
     headline: 'Got an AI Idea?',
     description: 'From napkin sketch to funded startup. Technical co-founder as a service.',
-    features: ['Technical co-founder expertise', '0 to MVP in 90 days', 'Fundraising-ready architecture'],
+    features: ['Technical AI Expert Partner', '0 to MVP in 30 days', 'Fundraising-ready architecture'],
     cta: 'See Founder Journey',
     href: '/for-founders',
     color: 'purple'
@@ -25,9 +25,9 @@ const PATHS: PathCard[] = [
   {
     icon: '🏢',
     title: 'ENTERPRISES',
-    headline: 'Legacy System Holding You Back?',
-    description: 'Transform 20-year systems into AI powerhouses. Zero downtime. 10x performance.',
-    features: ['Zero downtime migration', '10x processing speed', 'Fortune 500 trusted'],
+    headline: 'TURN YOUR LEGACY SYSTEMS INTO AI POWERHOUSES',
+    description: 'Legacy systems transformed into AI advantage. Instant cost savings and ROI.',
+    features: ['Zero Downtime Migration', '10x faster performance', 'Board-ready results in one quarter', 'Free Executive AI Literacy Program'],
     cta: 'See Enterprise Solutions',
     href: '/for-enterprise',
     color: 'blue'

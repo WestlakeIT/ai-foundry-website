@@ -7,7 +7,7 @@ export default function FAQ() {
   return (
     <section className="py-16">
       <div className="mx-auto max-w-[800px] px-6">
-        <h3 className="mb-8 text-center text-2xl text-primary">Founder FAQs</h3>
+        <h3 className="mb-8 text-center text-2xl text-primary">Founder Questions, Answered.</h3>
         <div className="space-y-3">
           {FOUNDER_FAQ.map((f, idx) => (
             <FaqItem key={idx} question={f.q} answer={f.a} />)

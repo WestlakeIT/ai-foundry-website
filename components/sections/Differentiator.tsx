@@ -21,10 +21,9 @@ export default function Differentiator() {
             <div className="text-[1.65rem] font-semibold mb-4 text-accent">The Foundry Way</div>
             <ul className="space-y-3 text-[1.05rem]">
               <li>Week 1: Building starts</li>
-              <li>Week 4: Working prototype</li>
-              <li>Week 12: Market launch</li>
-              <li>We stay until it scales</li>
-              <li>Equity aligned success</li>
+              <li>Week 4-7: Working prototype</li>
+              <li>Week 8-12: Market launch</li>
+              <li>Optimization and Technical Support</li>
             </ul>
           </div>
         </div>
