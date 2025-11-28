@@ -37,7 +37,7 @@ export default function Hero() {
           We don’t just build AI. We forge ventures, transform enterprises, and turn bold ideas into market reality—fast.
         </p>
         <div className="mt-12 flex flex-wrap items-center justify-center gap-5">
-          <Link href="/start-building" className="inline-block rounded-full bg-gradient-to-r from-[#6b5bff] to-[#6bffd9] px-8 py-4 text-lg font-semibold text-[#06101b] shadow-[0_10px_26px_rgba(107,91,255,0.14)] transition-transform hover:-translate-y-0.5 animate-[gentlePulse_4.5s_ease-in-out_infinite]">
+          <Link href="/start-building" className="inline-block rounded-full bg-gradient-to-r from-[#a8e6cf] to-[#7fc8a9] px-8 py-4 text-lg font-semibold text-[#06101b] shadow-[0_10px_26px_rgba(127,200,169,0.2)] transition-transform hover:-translate-y-0.5 animate-[gentlePulse_4.5s_ease-in-out_infinite]">
             Start Building
           </Link>
           <Link href="/process" className="inline-block rounded-full border-2 border-[rgba(255,255,255,0.07)] backdrop-blur-[4px] px-8 py-4 text-lg font-semibold text-[#e9eef2]">

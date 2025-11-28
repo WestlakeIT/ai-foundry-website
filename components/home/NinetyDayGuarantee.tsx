@@ -155,7 +155,7 @@ export default function NinetyDayGuarantee() {
         {/* Headline */}
         <div className="text-center mb-14">
           <h2 className="font-extrabold tracking-tight leading-[0.95] text-center">
-            <span className="block text-[clamp(2.8rem,6vw,5rem)] sm:text-[clamp(4rem,6vw,6rem)] md:text-[clamp(5rem,6vw,7rem)] bg-gradient-to-r from-white via-primary to-accent bg-clip-text text-transparent">
+            <span className="block text-[clamp(2.8rem,6vw,5rem)] sm:text-[clamp(4rem,6vw,6rem)] md:text-[clamp(5rem,6vw,7rem)] bg-gradient-to-r from-[#a8e6cf] to-white bg-clip-text text-transparent">
               Warp Speed Development
             </span>
           </h2>
@@ -167,10 +167,44 @@ export default function NinetyDayGuarantee() {
         {/* Guarantee Box with pulsing border and glow */}
         <motion.div
           ref={guaranteeRef}
-          className="relative border-2 border-accent rounded-2xl bg-accent/10 shadow-[0_0_50px_rgba(6,255,165,0.3)] p-8 md:p-12 mb-16 overflow-hidden"
-          animate={{ scale: [1, 1.05, 1] }}
-          transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+          className="relative border-2 border-accent rounded-2xl bg-accent/10 shadow-[0_0_50px_rgba(6,255,165,0.3)] p-8 md:p-12 mb-16 overflow-visible"
         >
+          {/* Animated dot traveling around the border */}
+          <div className="absolute inset-0 rounded-2xl pointer-events-none overflow-visible">
+            <motion.div
+              className="absolute w-3 h-3 bg-accent rounded-full shadow-[0_0_12px_rgba(6,255,165,0.8)] -translate-x-1/2 -translate-y-1/2"
+              style={{
+                x: 0,
+                y: '50%',
+              }}
+              animate={{
+                x: [
+                  '0px',                    // Left-middle (start)
+                  'calc(100% - 12px)',      // Top-right
+                  'calc(100% - 12px)',      // Right-bottom
+                  '0px',                    // Left-bottom
+                  '0px',                    // Left-top
+                  'calc(100% - 12px)',      // Right-top
+                  'calc(100% - 12px)',      // Top-right (loop back)
+                ],
+                y: [
+                  'calc(50% - 6px)',        // Left-middle (start)
+                  '0px',                    // Top-right
+                  'calc(100% - 12px)',      // Right-bottom
+                  'calc(100% - 12px)',      // Left-bottom
+                  '0px',                    // Left-top
+                  '0px',                    // Right-top
+                  '0px',                    // Top-right (loop back)
+                ],
+              }}
+              transition={{
+                duration: 12,
+                repeat: Infinity,
+                ease: 'linear',
+                times: [0, 1/6, 2/6, 3/6, 4/6, 5/6, 1],
+              }}
+            />
+          </div>
           <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
               <div className="text-[2rem] md:text-[2.6rem] font-black leading-tight">

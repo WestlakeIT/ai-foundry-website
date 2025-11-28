@@ -179,7 +179,7 @@ export default function Navbar() {
           </div>
           <Link
             href="/start-building"
-            className="rounded-full bg-gradient-to-r from-[#6b5bff] to-[#6bffd9] px-7 py-3 text-base font-semibold text-[#06101b] shadow-[0_10px_26px_rgba(107,91,255,0.14)] transition-transform hover:-translate-y-0.5"
+            className="rounded-full bg-gradient-to-r from-[#a8e6cf] to-[#7fc8a9] px-7 py-3 text-base font-semibold text-[#06101b] shadow-[0_10px_26px_rgba(127,200,169,0.2)] transition-transform hover:-translate-y-0.5"
           >
             Start Building
           </Link>
@@ -226,7 +226,7 @@ export default function Navbar() {
               <Link
                 href="/start-building"
                 onClick={() => setMobileOpen(false)}
-                className="inline-block w-full rounded-full bg-gradient-to-br from-primary to-primaryDark px-5 py-2 text-center font-semibold text-white"
+                className="inline-block w-full rounded-full bg-gradient-to-r from-[#a8e6cf] to-[#7fc8a9] px-5 py-2 text-center font-semibold text-[#06101b]"
               >
                 Start Building
               </Link>
