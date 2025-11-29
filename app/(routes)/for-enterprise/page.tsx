@@ -1,4 +1,15 @@
 import Card from '@/components/ui/Card';
+import { Lightning, ShieldCheck, Check, Users } from '@/components/icons/PhosphorIcons';
+import { Database, StatsDownSquare, Package } from "iconoir-react";
+
+// Reusable Icon Component
+const InfoIcon = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
+  <div className={`w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center ${className}`}>
+    <div className="text-slate-300 opacity-90">
+      {children}
+    </div>
+  </div>
+);
 
 export default function ForEnterprisePage() {
   return (
@@ -28,8 +39,9 @@ export default function ForEnterprisePage() {
 
         <div className="mx-auto max-w-[1200px] relative z-10">
           {/* Urgent Badge */}
-          <div className="inline-block bg-gradient-to-br from-[#ff0844] to-[#ff6b6b] text-white px-6 py-2 rounded-full text-sm font-bold tracking-wider mb-8">
-            ⚡ ENTERPRISE TRANSFORMATION ACCELERATOR
+          <div className="inline-flex items-center gap-2 bg-gradient-to-br from-[#ff0844] to-[#ff6b6b] text-white px-6 py-2 rounded-full text-sm font-bold tracking-wider mb-8">
+            <Lightning size={18} weight="bold" />
+            <span>ENTERPRISE TRANSFORMATION ACCELERATOR</span>
           </div>
 
           {/* Main Title */}
@@ -68,7 +80,11 @@ export default function ForEnterprisePage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="group relative bg-[rgba(10,10,10,0.5)] rounded-[15px] p-6 border border-transparent transition-all duration-300 hover:border-[rgba(255,215,0,0.3)] hover:translate-x-2.5 overflow-hidden">
                 <div className="absolute inset-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-[rgba(255,215,0,0.1)] to-transparent transition-all duration-500 group-hover:left-full"></div>
-                <div className="text-2xl mb-3 relative z-10">⚠️</div>
+                <div className="mb-3 relative z-10">
+                  <InfoIcon>
+                    <Database width={28} height={28} strokeWidth={1.75} className="text-[#7AA0C4]" />
+                  </InfoIcon>
+                </div>
                 <div className="text-[#e5e7eb] text-lg leading-relaxed relative z-10">
                   &ldquo;Our data is stuck in outdated databases and legacy file systems&rdquo;
                 </div>
@@ -76,7 +92,11 @@ export default function ForEnterprisePage() {
 
               <div className="group relative bg-[rgba(10,10,10,0.5)] rounded-[15px] p-6 border border-transparent transition-all duration-300 hover:border-[rgba(255,215,0,0.3)] hover:translate-x-2.5 overflow-hidden">
                 <div className="absolute inset-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-[rgba(255,215,0,0.1)] to-transparent transition-all duration-500 group-hover:left-full"></div>
-                <div className="text-2xl mb-3 relative z-10">🛡️</div>
+                <div className="mb-3 relative z-10">
+                  <InfoIcon>
+                    <ShieldCheck size={28} weight="regular" className="text-[#6FB39D]" />
+                  </InfoIcon>
+                </div>
                 <div className="text-[#e5e7eb] text-lg leading-relaxed relative z-10">
                   &ldquo;We need AI but can&apos;t risk our operations&rdquo;
                 </div>
@@ -84,7 +104,11 @@ export default function ForEnterprisePage() {
 
               <div className="group relative bg-[rgba(10,10,10,0.5)] rounded-[15px] p-6 border border-transparent transition-all duration-300 hover:border-[rgba(255,215,0,0.3)] hover:translate-x-2.5 overflow-hidden">
                 <div className="absolute inset-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-[rgba(255,215,0,0.1)] to-transparent transition-all duration-500 group-hover:left-full"></div>
-                <div className="text-2xl mb-3 relative z-10">📊</div>
+                <div className="mb-3 relative z-10">
+                  <InfoIcon>
+                    <StatsDownSquare width={28} height={28} strokeWidth={1.75} className="text-[#A18AC6]" />
+                  </InfoIcon>
+                </div>
                 <div className="text-[#e5e7eb] text-lg leading-relaxed relative z-10">
                   &ldquo;We&apos;re behind on AI adoption and need to act fast&rdquo;
                 </div>
@@ -92,7 +116,11 @@ export default function ForEnterprisePage() {
 
               <div className="group relative bg-[rgba(10,10,10,0.5)] rounded-[15px] p-6 border border-transparent transition-all duration-300 hover:border-[rgba(255,215,0,0.3)] hover:translate-x-2.5 overflow-hidden">
                 <div className="absolute inset-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-[rgba(255,215,0,0.1)] to-transparent transition-all duration-500 group-hover:left-full"></div>
-                <div className="text-2xl mb-3 relative z-10">🏃</div>
+                <div className="mb-3 relative z-10">
+                  <InfoIcon>
+                    <Users size={28} weight="regular" className="text-[#7AA0C4]" />
+                  </InfoIcon>
+                </div>
                 <div className="text-[#e5e7eb] text-lg leading-relaxed relative z-10">
                   &ldquo;Our competition is already using AI to win&rdquo;
                 </div>
@@ -132,15 +160,15 @@ export default function ForEnterprisePage() {
               <p className="text-[#e5e7eb] leading-relaxed mb-6">Build tomorrow&apos;s AI while today&apos;s systems run perfectly</p>
               <ul className="list-none space-y-2">
                 <li className="text-textMuted flex items-start gap-2">
-                  <span className="text-accent font-bold flex-shrink-0">✓</span>
+                  <Check size={20} weight="regular" className="text-green-400 flex-shrink-0 mt-0.5" />
                   <span>Parallel processing approach</span>
                 </li>
                 <li className="text-textMuted flex items-start gap-2">
-                  <span className="text-accent font-bold flex-shrink-0">✓</span>
+                  <Check size={20} weight="regular" className="text-green-400 flex-shrink-0 mt-0.5" />
                   <span>70% cost reduction guaranteed</span>
                 </li>
                 <li className="text-textMuted flex items-start gap-2">
-                  <span className="text-accent font-bold flex-shrink-0">✓</span>
+                  <Check size={20} weight="regular" className="text-green-400 flex-shrink-0 mt-0.5" />
                   <span>Current operations protected</span>
                 </li>
               </ul>
@@ -163,15 +191,15 @@ export default function ForEnterprisePage() {
               <p className="text-[#e5e7eb] leading-relaxed mb-6">De-risk your journey with incremental migration strategy</p>
               <ul className="list-none space-y-2">
                 <li className="text-textMuted flex items-start gap-2">
-                  <span className="text-accent font-bold flex-shrink-0">✓</span>
+                  <Check size={20} weight="regular" className="text-green-400 flex-shrink-0 mt-0.5" />
                   <span>Phase-by-phase validation</span>
                 </li>
                 <li className="text-textMuted flex items-start gap-2">
-                  <span className="text-accent font-bold flex-shrink-0">✓</span>
+                  <Check size={20} weight="regular" className="text-green-400 flex-shrink-0 mt-0.5" />
                   <span>Complete control at each step</span>
                 </li>
                 <li className="text-textMuted flex items-start gap-2">
-                  <span className="text-accent font-bold flex-shrink-0">✓</span>
+                  <Check size={20} weight="regular" className="text-green-400 flex-shrink-0 mt-0.5" />
                   <span>Insurance-ready approach</span>
                 </li>
               </ul>
@@ -194,15 +222,15 @@ export default function ForEnterprisePage() {
               <p className="text-[#e5e7eb] leading-relaxed mb-6">Transform existing systems into AI powerhouses without rebuilding</p>
               <ul className="list-none space-y-2">
                 <li className="text-textMuted flex items-start gap-2">
-                  <span className="text-accent font-bold flex-shrink-0">✓</span>
+                  <Check size={20} weight="regular" className="text-green-400 flex-shrink-0 mt-0.5" />
                   <span>10x performance improvement</span>
                 </li>
                 <li className="text-textMuted flex items-start gap-2">
-                  <span className="text-accent font-bold flex-shrink-0">✓</span>
+                  <Check size={20} weight="regular" className="text-green-400 flex-shrink-0 mt-0.5" />
                   <span>Maximize ROI on past investments</span>
                 </li>
                 <li className="text-textMuted flex items-start gap-2">
-                  <span className="text-accent font-bold flex-shrink-0">✓</span>
+                  <Check size={20} weight="regular" className="text-green-400 flex-shrink-0 mt-0.5" />
                   <span>Weeks not years to deploy</span>
                 </li>
               </ul>
@@ -236,19 +264,19 @@ export default function ForEnterprisePage() {
               <p className="text-[#e5e7eb] leading-relaxed mb-6">Complimentary C-Suite education program with every enterprise engagement</p>
               <ul className="list-none space-y-2">
                 <li className="text-textMuted flex items-start gap-2">
-                  <span className="text-accent font-bold flex-shrink-0">✓</span>
+                  <Check size={20} weight="regular" className="text-green-400 flex-shrink-0 mt-0.5" />
                   <span>Weekly executive workshops</span>
                 </li>
                 <li className="text-textMuted flex items-start gap-2">
-                  <span className="text-accent font-bold flex-shrink-0">✓</span>
+                  <Check size={20} weight="regular" className="text-green-400 flex-shrink-0 mt-0.5" />
                   <span>Board-ready AI fluency</span>
                 </li>
                 <li className="text-textMuted flex items-start gap-2">
-                  <span className="text-accent font-bold flex-shrink-0">✓</span>
+                  <Check size={20} weight="regular" className="text-green-400 flex-shrink-0 mt-0.5" />
                   <span>Direct access to our founders</span>
                 </li>
                 <li className="text-textMuted flex items-start gap-2">
-                  <span className="text-accent font-bold flex-shrink-0">✓</span>
+                  <Check size={20} weight="regular" className="text-green-400 flex-shrink-0 mt-0.5" />
                   <span>Strategic guidance, not tech talk</span>
                 </li>
               </ul>
@@ -258,22 +286,59 @@ export default function ForEnterprisePage() {
 
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           <Card>
-            <h3 className="text-xl text-accent">🔒 Security & Compliance</h3>
+            <h3 className="text-xl text-accent flex items-center gap-3">
+              <InfoIcon>
+                <ShieldCheck size={24} weight="regular" className="text-[#6FB39D]" />
+              </InfoIcon>
+              <span>Security & Compliance</span>
+            </h3>
             <ul className="mt-3 list-none space-y-2">
-              <li>✓ SOC2 Type II certified</li>
-              <li>✓ HIPAA compliant development</li>
-              <li>✓ On-premise deployment options</li>
-              <li>✓ Your data never leaves your control</li>
+              <li className="flex items-start gap-2">
+                <Check size={18} weight="regular" className="text-green-400 flex-shrink-0 mt-0.5" />
+                <span>SOC2 Type II certified</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Check size={18} weight="regular" className="text-green-400 flex-shrink-0 mt-0.5" />
+                <span>HIPAA compliant development</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Check size={18} weight="regular" className="text-green-400 flex-shrink-0 mt-0.5" />
+                <span>On-premise deployment options</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Check size={18} weight="regular" className="text-green-400 flex-shrink-0 mt-0.5" />
+                <span>Your data never leaves your control</span>
+              </li>
             </ul>
           </Card>
           <Card>
-            <h3 className="text-xl text-accent">📦 Enterprise Package Includes</h3>
+            <h3 className="text-xl text-accent flex items-center gap-3">
+              <InfoIcon>
+                <Package width={24} height={24} strokeWidth={1.75} className="text-[#7AA0C4]" />
+              </InfoIcon>
+              <span>Enterprise Package Includes</span>
+            </h3>
             <ul className="mt-3 list-none space-y-2">
-              <li>✓ Dedicated team of 5-8 AI engineers</li>
-              <li>✓ Weekly executive updates</li>
-              <li>✓ 24/7 support during transition</li>
-              <li>✓ Training for your team</li>
-              <li>✓ 1-year optimization support</li>
+              <li className="flex items-start gap-2">
+                <Check size={18} weight="regular" className="text-green-400 flex-shrink-0 mt-0.5" />
+                <span>Dedicated team of 5-8 AI engineers</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Check size={18} weight="regular" className="text-green-400 flex-shrink-0 mt-0.5" />
+                <span>Weekly executive updates</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Check size={18} weight="regular" className="text-green-400 flex-shrink-0 mt-0.5" />
+                <span>24/7 support during transition</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Check size={18} weight="regular" className="text-green-400 flex-shrink-0 mt-0.5" />
+                <span>Training for your team</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Check size={18} weight="regular" className="text-green-400 flex-shrink-0 mt-0.5" />
+                <span>1-year optimization support</span>
+              </li>
             </ul>
           </Card>
         </div>
