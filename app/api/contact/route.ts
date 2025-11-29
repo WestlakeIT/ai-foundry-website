@@ -44,6 +44,11 @@ export async function POST(request: Request) {
       );
     }
 
+    // Validate email configuration
+    const fromAcknowledgment = process.env.RESEND_FROM_ACKNOWLEDGMENT || 'Nathan Duraisamy <nathand@westlakeitsolutions.com>';
+    const fromInternal = process.env.RESEND_FROM_INTERNAL || 'WESTLAKE AI System <notifications@westlakeitsolutions.com>';
+    const toInternal = process.env.RESEND_TO_EMAIL || 'nathand@westlakeitsolutions.com';
+
     // Prepare formatted values for emails
     const formattedUrgency = formatUrgency(formData.urgency);
     const formattedBudget = formatBudget(formData.budget);
@@ -53,7 +58,7 @@ export async function POST(request: Request) {
 
     // Email to the person who submitted the form
     const acknowledgmentEmail = {
-      from: 'Nathan Duraisamy <nathand@westlakeitsolutions.com>',
+      from: fromAcknowledgment,
       to: formData.email,
       subject: `Re: Your AI Vision for ${formData.company}`,
       html: `
@@ -103,8 +108,8 @@ nathand@westlakeitsolutions.com`,
 
     // Internal notification email for your team
     const internalNotification = {
-      from: 'WESTLAKE AI System <notifications@westlakeitsolutions.com>',
-      to: 'nathand@westlakeitsolutions.com',
+      from: fromInternal,
+      to: toInternal,
       subject: `New AI Project Inquiry: ${formData.company} - ${formattedUrgency} Priority`,
       html: `
         <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333;">

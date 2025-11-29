@@ -26,4 +26,7 @@ export { FileText } from "@phosphor-icons/react";
 export { ChartLineUp } from "@phosphor-icons/react";
 export { Clock } from "@phosphor-icons/react";
 export { CurrencyDollar } from "@phosphor-icons/react";
+export { Smiley } from "@phosphor-icons/react";
+export { Envelope } from "@phosphor-icons/react";
+export { CircleCheck } from "@phosphor-icons/react";
 

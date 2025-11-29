@@ -2,63 +2,26 @@ import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { Resend } from 'resend';
 
-// Base schema that all personas share
-const baseSchema = z.object({
+// Schema matching the start-building form
+const schema = z.object({
   persona: z.enum(['founder', 'enterprise', 'innovator']),
-});
-
-// Founder-specific schema
-const founderSchema = baseSchema.extend({
-  founderName: z.string().min(2, 'Name is required'),
-  startupName: z.string().min(2, 'Startup name is required'),
-  founderRole: z.string().min(1, 'Role is required'),
-  founderEmail: z.string().email('Valid email required'),
-  founderChallenge: z.string().min(10, 'Please describe your AI challenge'),
-  founderStage: z.string().min(1, 'Please select your stage'),
-  founderBudget: z.string().min(1, 'Please select a budget range'),
-});
-
-// Enterprise-specific schema
-const enterpriseSchema = baseSchema.extend({
-  enterpriseName: z.string().min(2, 'Name is required'),
-  orgName: z.string().min(2, 'Organization name is required'),
-  enterpriseTitle: z.string().min(1, 'Title is required'),
-  enterpriseEmail: z.string().email('Valid email required'),
-  enterpriseInitiative: z.string().min(10, 'Please describe your strategic AI initiative'),
-  enterpriseDepartment: z.string().min(1, 'Please select a department'),
-  enterpriseBudget: z.string().min(1, 'Please select an investment range'),
-});
-
-// Innovator-specific schema
-const innovatorSchema = baseSchema.extend({
-  innovatorName: z.string().min(2, 'Name is required'),
-  labName: z.string().min(2, 'Organization/Lab name is required'),
-  innovatorFocus: z.string().min(1, 'Please select your focus area'),
-  innovatorEmail: z.string().email('Valid email required'),
-  innovatorVision: z.string().min(10, 'Please describe your innovation vision'),
-  innovatorApproach: z.string().min(1, 'Please select a technical approach'),
-  innovatorFunding: z.string().min(1, 'Please select a funding source'),
+  name: z.string().min(2, 'Name is required'),
+  company: z.string().optional().transform(val => val === '' ? undefined : val),
+  email: z.string().email('Valid email required'),
+  title: z.string().min(1, 'Title is required'),
+  aiVision: z.string().min(10, 'Please describe your AI vision (minimum 10 characters required)'),
+  engagementType: z.string().optional().transform(val => val === '' ? undefined : val),
 });
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
     
-    // Determine which schema to use based on persona
-    let formData: z.infer<typeof founderSchema | typeof enterpriseSchema | typeof innovatorSchema>;
+    // Log received data for debugging
+    console.log('Received form data:', JSON.stringify(body, null, 2));
     
-    if (body.persona === 'founder') {
-      formData = founderSchema.parse(body);
-    } else if (body.persona === 'enterprise') {
-      formData = enterpriseSchema.parse(body);
-    } else if (body.persona === 'innovator') {
-      formData = innovatorSchema.parse(body);
-    } else {
-      return NextResponse.json(
-        { error: 'Invalid persona selected' },
-        { status: 400 }
-      );
-    }
+    // Validate form data
+    const formData = schema.parse(body);
 
     if (!process.env.RESEND_API_KEY) {
       console.error('RESEND_API_KEY is not set');
@@ -70,105 +33,49 @@ export async function POST(request: Request) {
 
     const resend = new Resend(process.env.RESEND_API_KEY);
 
-    // Extract email and name based on persona
-    let email: string;
-    let name: string;
-    let companyName: string;
+    // Get email configuration with fallbacks
+    const fromAcknowledgment = process.env.RESEND_FROM_ACKNOWLEDGMENT || 'Nathan Duraisamy <nathand@westlakeitsolutions.com>';
+    const fromInternal = process.env.RESEND_FROM_INTERNAL || 'WESTLAKE AI System <notifications@westlakeitsolutions.com>';
+    const toInternal = process.env.RESEND_TO_EMAIL || 'nathand@westlakeitsolutions.com';
+    // For testing: if RESEND_TO_ACKNOWLEDGMENT is set, send acknowledgment there instead of to the form submitter
+    const toAcknowledgment = process.env.RESEND_TO_ACKNOWLEDGMENT || formData.email;
 
-    if (formData.persona === 'founder') {
-      const data = formData as z.infer<typeof founderSchema>;
-      email = data.founderEmail;
-      name = data.founderName;
-      companyName = data.startupName;
-    } else if (formData.persona === 'enterprise') {
-      const data = formData as z.infer<typeof enterpriseSchema>;
-      email = data.enterpriseEmail;
-      name = data.enterpriseName;
-      companyName = data.orgName;
-    } else {
-      const data = formData as z.infer<typeof innovatorSchema>;
-      email = data.innovatorEmail;
-      name = data.innovatorName;
-      companyName = data.labName;
-    }
+    const companyName = formData.company || 'Not provided';
+    const personaLabel = formData.persona.charAt(0).toUpperCase() + formData.persona.slice(1);
 
-    // Build form details HTML based on persona
-    let formDetailsHtml = '';
-    let formDetailsText = '';
+    // Build form details HTML
+    const formDetailsHtml = `
+      <p><strong>Persona:</strong> ${personaLabel}</p>
+      <p><strong>Name:</strong> ${formData.name}</p>
+      <p><strong>Company:</strong> ${companyName}</p>
+      <p><strong>Title:</strong> ${formData.title}</p>
+      <p><strong>Email:</strong> <a href="mailto:${formData.email}">${formData.email}</a></p>
+      ${formData.engagementType ? `<p><strong>Engagement Type:</strong> ${formData.engagementType}</p>` : ''}
+      <p><strong>AI Vision:</strong></p>
+      <div style="background: #fff; border: 1px solid #e0e0e0; padding: 16px; border-radius: 4px; margin-top: 8px;">
+        <p style="white-space: pre-wrap; margin: 0;">${formData.aiVision}</p>
+      </div>
+    `;
 
-    if (formData.persona === 'founder') {
-      const data = formData as z.infer<typeof founderSchema>;
-      formDetailsHtml = `
-        <p><strong>Startup Name:</strong> ${data.startupName}</p>
-        <p><strong>Role:</strong> ${data.founderRole}</p>
-        <p><strong>Current Stage:</strong> ${data.founderStage}</p>
-        <p><strong>Sprint Budget:</strong> ${data.founderBudget}</p>
-        <p><strong>AI Challenge:</strong></p>
-        <div style="background: #fff; border: 1px solid #e0e0e0; padding: 16px; border-radius: 4px; margin-top: 8px;">
-          <p style="white-space: pre-wrap; margin: 0;">${data.founderChallenge}</p>
-        </div>
-      `;
-      formDetailsText = `
-Startup Name: ${data.startupName}
-Role: ${data.founderRole}
-Current Stage: ${data.founderStage}
-Sprint Budget: ${data.founderBudget}
+    const formDetailsText = `
+Persona: ${personaLabel}
+Name: ${formData.name}
+Company: ${companyName}
+Title: ${formData.title}
+Email: ${formData.email}
+${formData.engagementType ? `Engagement Type: ${formData.engagementType}\n` : ''}
+AI Vision:
+${formData.aiVision}
+    `;
 
-AI Challenge:
-${data.founderChallenge}
-      `;
-    } else if (formData.persona === 'enterprise') {
-      const data = formData as z.infer<typeof enterpriseSchema>;
-      formDetailsHtml = `
-        <p><strong>Organization:</strong> ${data.orgName}</p>
-        <p><strong>Title:</strong> ${data.enterpriseTitle}</p>
-        <p><strong>Department Focus:</strong> ${data.enterpriseDepartment}</p>
-        <p><strong>Investment Range:</strong> ${data.enterpriseBudget}</p>
-        <p><strong>Strategic AI Initiative:</strong></p>
-        <div style="background: #fff; border: 1px solid #e0e0e0; padding: 16px; border-radius: 4px; margin-top: 8px;">
-          <p style="white-space: pre-wrap; margin: 0;">${data.enterpriseInitiative}</p>
-        </div>
-      `;
-      formDetailsText = `
-Organization: ${data.orgName}
-Title: ${data.enterpriseTitle}
-Department Focus: ${data.enterpriseDepartment}
-Investment Range: ${data.enterpriseBudget}
-
-Strategic AI Initiative:
-${data.enterpriseInitiative}
-      `;
-    } else {
-      const data = formData as z.infer<typeof innovatorSchema>;
-      formDetailsHtml = `
-        <p><strong>Organization/Lab:</strong> ${data.labName}</p>
-        <p><strong>Focus Area:</strong> ${data.innovatorFocus}</p>
-        <p><strong>Technical Approach:</strong> ${data.innovatorApproach}</p>
-        <p><strong>Funding Source:</strong> ${data.innovatorFunding}</p>
-        <p><strong>Innovation Vision:</strong></p>
-        <div style="background: #fff; border: 1px solid #e0e0e0; padding: 16px; border-radius: 4px; margin-top: 8px;">
-          <p style="white-space: pre-wrap; margin: 0;">${data.innovatorVision}</p>
-        </div>
-      `;
-      formDetailsText = `
-Organization/Lab: ${data.labName}
-Focus Area: ${data.innovatorFocus}
-Technical Approach: ${data.innovatorApproach}
-Funding Source: ${data.innovatorFunding}
-
-Innovation Vision:
-${data.innovatorVision}
-      `;
-    }
-
-    // Email to the person who submitted the form
+    // Email to the person who submitted the form (or test email if configured)
     const acknowledgmentEmail = {
-      from: 'Nathan Duraisamy <nathand@westlakeitsolutions.com>',
-      to: email,
+      from: fromAcknowledgment,
+      to: toAcknowledgment,
       subject: `Discovery Sprint Application Received - ${companyName}`,
       html: `
         <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333;">
-          <p>Hi ${name},</p>
+          <p>Hi ${formData.name},</p>
           
           <p>Thank you for your interest in our Discovery Sprint program. I've received your application and I'm genuinely excited about the potential collaboration.</p>
           
@@ -194,7 +101,7 @@ ${data.innovatorVision}
           <a href="mailto:nathand@westlakeitsolutions.com" style="color: #6366f1;">nathand@westlakeitsolutions.com</a></p>
         </div>
       `,
-      text: `Hi ${name},
+      text: `Hi ${formData.name},
 
 Thank you for your interest in our Discovery Sprint program. I've received your application and I'm genuinely excited about the potential collaboration.
 
@@ -218,18 +125,14 @@ nathand@westlakeitsolutions.com`,
 
     // Internal notification email
     const internalNotification = {
-      from: 'WESTLAKE AI System <notifications@westlakeitsolutions.com>',
-      to: 'nathand@westlakeitsolutions.com',
-      subject: `New Discovery Sprint Application: ${companyName} (${formData.persona})`,
+      from: fromInternal,
+      to: toInternal,
+      subject: `New Discovery Sprint Application: ${companyName} (${personaLabel})`,
       html: `
         <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333;">
           <h2 style="color: #6366f1;">New Discovery Sprint Application</h2>
           
           <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <p><strong>Persona:</strong> <span style="text-transform: capitalize;">${formData.persona}</span></p>
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
-            <p><strong>Company/Organization:</strong> ${companyName}</p>
             ${formDetailsHtml}
           </div>
           
@@ -238,7 +141,7 @@ nathand@westlakeitsolutions.com`,
           </div>
           
           <p style="margin-top: 24px;">
-            <a href="mailto:${email}?subject=Re: Discovery Sprint Application from ${companyName}" style="background: #6366f1; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; display: inline-block;">Reply to ${name}</a>
+            <a href="mailto:${formData.email}?subject=Re: Discovery Sprint Application from ${companyName}" style="background: #6366f1; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; display: inline-block;">Reply to ${formData.name}</a>
           </p>
         </div>
       `,
@@ -260,16 +163,22 @@ nathand@westlakeitsolutions.com`,
     return NextResponse.json({ ok: true }, { status: 200 });
   } catch (error) {
     if (error instanceof z.ZodError) {
+      console.error('Validation error:', error.errors);
       return NextResponse.json(
-        { error: 'Validation failed', details: error.errors },
+        { 
+          error: 'Validation failed', 
+          details: error.errors.map(err => ({
+            field: err.path.join('.'),
+            message: err.message
+          }))
+        },
         { status: 400 }
       );
     }
     console.error('Error processing discovery sprint form:', error);
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { error: 'Internal server error', message: error instanceof Error ? error.message : 'Unknown error' },
       { status: 500 }
     );
   }
 }
-

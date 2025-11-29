@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import { Smiley, Envelope, CircleCheck } from '@/components/icons/PhosphorIcons';
 
 type PersonaType = 'founder' | 'enterprise' | 'innovator' | null;
 
@@ -50,7 +51,10 @@ export default function StartBuildingPage() {
 
       if (!response.ok) {
         const error = await response.json();
-        throw new Error(error.error || 'Submission failed');
+        const errorMessage = error.details 
+          ? `Validation failed: ${error.details.map((d: any) => d.message || `${d.field}: ${d.message}`).join(', ')}`
+          : error.error || 'Submission failed';
+        throw new Error(errorMessage);
       }
 
       // Success
@@ -86,7 +90,10 @@ export default function StartBuildingPage() {
         <div className="bg-[rgba(30,41,82,0.6)] border border-[rgba(0,212,255,0.2)] rounded-3xl p-10 md:p-12 backdrop-blur-md max-w-4xl mx-auto">
           {submitSuccess ? (
             <div className="p-5 bg-gradient-to-r from-[rgba(0,255,136,0.2)] to-[rgba(0,212,255,0.2)] border border-[#00ff88] rounded-xl text-center animate-fadeInUp">
-              <h3 className="text-xl font-semibold mb-2">🚀 Application Received!</h3>
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <CircleCheck size={24} weight="fill" className="text-[#00ff88]" />
+                <h3 className="text-xl font-semibold">Application Received!</h3>
+              </div>
               <p>Our team will review and send you a detailed sprint proposal within 48 hours.</p>
             </div>
           ) : (
@@ -256,7 +263,7 @@ export default function StartBuildingPage() {
                   >
                     <input
                       type="radio"
-                      name="engagement"
+                      name="engagementType"
                       value="strategy"
                       checked={selectedEngagement === 'strategy'}
                       onChange={(e) => setSelectedEngagement(e.target.value)}
@@ -293,7 +300,7 @@ export default function StartBuildingPage() {
                   >
                     <input
                       type="radio"
-                      name="engagement"
+                      name="engagementType"
                       value="discovery"
                       checked={selectedEngagement === 'discovery'}
                       onChange={(e) => setSelectedEngagement(e.target.value)}
@@ -330,7 +337,7 @@ export default function StartBuildingPage() {
                   >
                     <input
                       type="radio"
-                      name="engagement"
+                      name="engagementType"
                       value="partnership"
                       checked={selectedEngagement === 'partnership'}
                       onChange={(e) => setSelectedEngagement(e.target.value)}
@@ -375,6 +382,20 @@ export default function StartBuildingPage() {
                     'Submit Application'
                   )}
                 </button>
+              </div>
+
+              {/* Alternative Contact Section */}
+              <div className="mt-8 pt-8 border-t border-[rgba(148,163,184,0.2)]">
+                <p className="text-[#94a3b8] text-base mb-4">
+                  Don&apos;t feel like filling out a form? Just type — we get it. <Smiley size={20} weight="regular" className="inline-block ml-1 text-[#00d4ff]" />
+                </p>
+                <p className="text-[#94a3b8] text-base mb-4">
+                  Whether your idea is <span className="text-[#00ff88] font-semibold">still forming or already in motion</span>, we approach every message with <span className="text-[#00d4ff] font-semibold">respect, curiosity, and zero assumptions</span>. No concept is <span className="text-[#00ff88] font-semibold">too small, too early, or too experimental</span>. If you&apos;re thinking about building something with AI, we&apos;ll help you <span className="text-[#00d4ff] font-semibold">shape it, refine it</span>, and guide you toward the next step. <span className="text-[#00ff88] font-semibold">Just reach out</span> — we&apos;re here to support you.
+                </p>
+                <p className="text-[#e2e8f0] text-base flex items-center gap-2">
+                  <Envelope size={20} weight="regular" className="text-[#00d4ff]" />
+                  <span>Email us anytime: <a href="mailto:aifoundry@westlakeitsolutions.com" className="text-[#00ff88] hover:text-[#00d4ff] transition-colors underline">aifoundry@westlakeitsolutions.com</a></span>
+                </p>
               </div>
             </form>
           )}

@@ -5,6 +5,10 @@ Create a `.env.local` in the project root using the keys below.
 ```bash
 # Email
 RESEND_API_KEY=
+RESEND_FROM_ACKNOWLEDGMENT=Nathan Duraisamy <nathand@westlakeitsolutions.com>
+RESEND_FROM_INTERNAL=WESTLAKE AI System <notifications@westlakeitsolutions.com>
+RESEND_TO_EMAIL=nathand@westlakeitsolutions.com
+RESEND_TO_ACKNOWLEDGMENT=
 SENDGRID_API_KEY=
 CONTACT_TO_EMAIL=
 CONTACT_FROM_EMAIL=
