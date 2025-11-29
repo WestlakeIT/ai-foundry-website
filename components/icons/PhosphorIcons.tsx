@@ -21,4 +21,7 @@ export { FlagCheckered } from "@phosphor-icons/react";
 export { Hammer } from "@phosphor-icons/react";
 export { SquaresFour } from "@phosphor-icons/react";
 export { Sparkle } from "@phosphor-icons/react";
+export { DeviceMobile } from "@phosphor-icons/react";
+export { FileText } from "@phosphor-icons/react";
+export { ChartLineUp } from "@phosphor-icons/react";
 

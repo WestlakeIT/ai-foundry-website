@@ -321,7 +321,7 @@ export default function ForEnterprisePage() {
             <ul className="mt-3 list-none space-y-2">
               <li className="flex items-start gap-2">
                 <Check size={18} weight="regular" className="text-green-400 flex-shrink-0 mt-0.5" />
-                <span>Dedicated team of 5-8 AI engineers</span>
+                <span>Dedicated AI Project Team</span>
               </li>
               <li className="flex items-start gap-2">
                 <Check size={18} weight="regular" className="text-green-400 flex-shrink-0 mt-0.5" />
