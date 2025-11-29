@@ -1,10 +1,11 @@
 import Link from 'next/link';
+import { FlagCheckered, ChartBar, Handshake, Lock } from '@/components/icons/PhosphorIcons';
 
 const CHALLENGES = [
-  { text: 'My competitor just raised $50M for AI. I need to move NOW.', icon: '⚡' },
-  { text: "We have the data but can't turn it into AI advantage", icon: '📊' },
-  { text: 'I need a technical co-founder who can actually deliver', icon: '🤝' },
-  { text: 'Our legacy system is holding back our AI ambitions', icon: '🔒' }
+  { text: 'My competitor just raised $50M for AI. I need to move NOW.', icon: <FlagCheckered size={28} weight="regular" className="text-[#fbbf24]" /> },
+  { text: "We have the data but can't turn it into AI advantage", icon: <ChartBar size={28} weight="regular" className="text-[#60a5fa]" /> },
+  { text: 'I need a technical co-founder who can actually deliver', icon: <Handshake size={28} weight="regular" className="text-[#34d399]" /> },
+  { text: 'Our legacy system is holding back our AI ambitions', icon: <Lock size={28} weight="regular" className="text-[#a78bfa]" /> }
 ];
 
 export default function ChallengeSection() {
@@ -15,7 +16,7 @@ export default function ChallengeSection() {
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {CHALLENGES.map((c) => (
             <div key={c.text} className="group flex items-start gap-3 rounded-xl border border-primary/20 bg-darkLighter p-5 transition-colors hover:border-accent">
-              <span className="text-2xl">{c.icon}</span>
+              <div className="flex-shrink-0 mt-0.5">{c.icon}</div>
               <p className="flex-1 text-text text-lg">
                 {c.text}
                 <span className="ml-2 hidden text-accent group-hover:inline">✓</span>

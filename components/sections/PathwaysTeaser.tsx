@@ -1,7 +1,8 @@
 import Link from 'next/link';
+import { Sparkle, Buildings, Lightbulb } from '@/components/icons/PhosphorIcons';
 
 type PathCard = {
-  icon: string;
+  icon: React.ReactNode;
   title: string;
   headline: string;
   description: string;
@@ -13,7 +14,7 @@ type PathCard = {
 
 const PATHS: PathCard[] = [
   {
-    icon: '🚀',
+    icon: <Sparkle size={48} weight="regular" className="text-[#a78bfa]" />,
     title: 'FOUNDERS',
     headline: 'Got an AI Idea?',
     description: 'From napkin sketch to funded startup. Technical co-founder as a service.',
@@ -23,7 +24,7 @@ const PATHS: PathCard[] = [
     color: 'purple'
   },
   {
-    icon: '🏢',
+    icon: <Buildings size={48} weight="regular" className="text-[#60a5fa]" />,
     title: 'ENTERPRISES',
     headline: 'TURN YOUR LEGACY SYSTEMS INTO AI POWERHOUSES',
     description: 'Legacy systems transformed into AI advantage. Instant cost savings and ROI.',
@@ -33,7 +34,7 @@ const PATHS: PathCard[] = [
     color: 'blue'
   },
   {
-    icon: '💡',
+    icon: <Lightbulb size={48} weight="regular" className="text-[#34d399]" />,
     title: 'INNOVATORS',
     headline: 'Building the Impossible?',
     description: 'Moonshot projects. Patent partnerships. Where crazy ideas become reality.',
@@ -62,7 +63,7 @@ export default function PathwaysTeaser() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {PATHS.map((p) => (
             <div key={p.title} className="group rounded-2xl border border-primary/20 bg-darkLighter p-10 transition-all hover:-translate-y-1 hover:border-accent/60">
-              <div className="text-5xl mb-3">{p.icon}</div>
+              <div className="mb-3 flex items-center justify-center">{p.icon}</div>
               <div className="text-[0.9rem] tracking-[0.18em] text-textMuted">{p.title}</div>
               <div className="text-[1.85rem] font-semibold mt-3 leading-snug">{p.headline}</div>
               <p className="text-text mt-4 text-[1.125rem] leading-relaxed">{p.description}</p>

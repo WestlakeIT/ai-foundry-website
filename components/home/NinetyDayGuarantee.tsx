@@ -3,12 +3,13 @@
 import { useEffect, useMemo, useRef, useState, Suspense } from 'react';
 import Link from 'next/link';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
+import { Target, SquaresFour, Hammer, RocketLaunch } from '@/components/icons/PhosphorIcons';
 
 type TimelineItem = {
   phase: string;
   title: string;
   description: string;
-  icon: string;
+  icon: React.ReactNode;
   dayRange: string;
   details: string[];
 };
@@ -18,7 +19,7 @@ const timelineData: TimelineItem[] = [
     phase: "Week 1-2",
     title: "Discovery & Architecture",
     description: "Technical feasibility & system design",
-    icon: "🎯",
+    icon: <Target size={28} weight="regular" className="text-[#fbbf24]" />,
     dayRange: "Day 1-14",
     details: ["AI model selection", "Infrastructure planning", "Team assembly", "Cost optimization"]
   },
@@ -26,7 +27,7 @@ const timelineData: TimelineItem[] = [
     phase: "Week 3-4",
     title: "Foundation",
     description: "Core infrastructure & initial development",
-    icon: "🏗️",
+    icon: <SquaresFour size={28} weight="regular" className="text-[#60a5fa]" />,
     dayRange: "Day 15-30",
     details: ["Data pipeline setup", "Initial model training", "API architecture", "Security framework"]
   },
@@ -34,7 +35,7 @@ const timelineData: TimelineItem[] = [
     phase: "Week 5-8",
     title: "Building",
     description: "AI training & full-stack development",
-    icon: "⚡",
+    icon: <Hammer size={28} weight="regular" className="text-[#fbbf24]" />,
     dayRange: "Day 31-60",
     details: ["Model optimization", "Frontend development", "Integration testing", "Performance tuning"]
   },
@@ -42,7 +43,7 @@ const timelineData: TimelineItem[] = [
     phase: "Week 9-12",
     title: "Launch",
     description: "Testing, optimization & deployment",
-    icon: "🚀",
+    icon: <RocketLaunch size={28} weight="regular" className="text-[#34d399]" />,
     dayRange: "Day 61-90",
     details: ["Production deployment", "Monitoring setup", "Team training", "Go-live support"]
   }
@@ -337,7 +338,7 @@ function TimelineCard({ item, index, alignLeft }: { item: TimelineItem; index: n
         <div className="rounded-2xl border border-primary/30 bg-darkLighter p-6 hover:border-accent transition-colors">
           <div className="flex items-center justify-between">
             <div className="text-textMuted tracking-[0.18em] text-xs">{item.phase}</div>
-            <div className="text-2xl">{item.icon}</div>
+            <div className="flex items-center justify-center">{item.icon}</div>
           </div>
           <div className="text-[1.6rem] font-bold mt-2">{item.title}</div>
           <div className="text-text mt-1">{item.description}</div>

@@ -59,7 +59,6 @@ export default function Navbar() {
             </AnimatePresence>
           </div>
 
-          <Link href="/solutions" className="text-text hover:text-accent">Solutions</Link>
           <Link href="/process" className="text-text hover:text-accent">Process</Link>
           <div
             className="relative"
@@ -211,7 +210,6 @@ export default function Navbar() {
                   <Link href="/for-innovators" onClick={() => setMobileOpen(false)} className="block text-textMuted hover:text-accent">For Innovators</Link>
                 </div>
               </details>
-              <Link href="/solutions" onClick={() => setMobileOpen(false)} className="block text-textMuted hover:text-accent">Solutions</Link>
               <Link href="/process" onClick={() => setMobileOpen(false)} className="block text-textMuted hover:text-accent">Process</Link>
               <details className="group">
                 <summary className="list-none cursor-pointer text-textMuted">Insights</summary>
