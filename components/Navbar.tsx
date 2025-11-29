@@ -7,7 +7,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [buildOpen, setBuildOpen] = useState(false);
   const [insightsOpen, setInsightsOpen] = useState(false);
 
   useEffect(() => {
@@ -28,37 +27,10 @@ export default function Navbar() {
         </Link>
 
         <nav className="hidden items-center gap-10 md:flex text-[1.15rem]">
-          <div
-            className="relative"
-            onMouseEnter={() => setBuildOpen(true)}
-            onMouseLeave={() => setBuildOpen(false)}
-          >
-            <Link href="#build" className="flex items-center gap-1 text-text hover:text-accent">
-              Build
-              <span className={`text-sm transition-transform ${buildOpen ? 'rotate-180' : ''}`}>▼</span>
-            </Link>
-            <AnimatePresence>
-              {buildOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: -8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -8 }}
-                  className="absolute left-0 mt-2 w-56 rounded-lg border border-primary/20 bg-darkLighter/95 p-2 shadow-xl text-[1.05rem]"
-                >
-                  <Link href="/for-founders" className="block rounded-md px-4 py-2 text-text hover:bg-primary/10 hover:text-accent">
-                    For Founders
-                  </Link>
-                  <Link href="/for-enterprise" className="block rounded-md px-4 py-2 text-text hover:bg-primary/10 hover:text-accent">
-                    For Enterprise
-                  </Link>
-                  <Link href="/for-innovators" className="block rounded-md px-4 py-2 text-text hover:bg-primary/10 hover:text-accent">
-                    For Innovators
-                  </Link>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-
+          <Link href="/" className="text-text hover:text-accent">Home</Link>
+          <Link href="/for-founders" className="text-text hover:text-accent">Launch Faster</Link>
+          <Link href="/for-enterprise" className="text-text hover:text-accent">Scale with AI</Link>
+          <Link href="/for-innovators" className="text-text hover:text-accent">Innovation Lab</Link>
           <Link href="/process" className="text-text hover:text-accent">Process</Link>
           <div
             className="relative"
@@ -202,14 +174,10 @@ export default function Navbar() {
             className="md:hidden overflow-hidden border-t border-primary/20 bg-darkLighter"
           >
             <div className="px-6 py-4 space-y-3">
-              <details className="group">
-                <summary className="list-none cursor-pointer text-textMuted">Build</summary>
-                <div className="ml-3 mt-2 space-y-2">
-                  <Link href="/for-founders" onClick={() => setMobileOpen(false)} className="block text-textMuted hover:text-accent">For Founders</Link>
-                  <Link href="/for-enterprise" onClick={() => setMobileOpen(false)} className="block text-textMuted hover:text-accent">For Enterprise</Link>
-                  <Link href="/for-innovators" onClick={() => setMobileOpen(false)} className="block text-textMuted hover:text-accent">For Innovators</Link>
-                </div>
-              </details>
+              <Link href="/" onClick={() => setMobileOpen(false)} className="block text-textMuted hover:text-accent">Home</Link>
+              <Link href="/for-founders" onClick={() => setMobileOpen(false)} className="block text-textMuted hover:text-accent">Launch Faster</Link>
+              <Link href="/for-enterprise" onClick={() => setMobileOpen(false)} className="block text-textMuted hover:text-accent">Scale with AI</Link>
+              <Link href="/for-innovators" onClick={() => setMobileOpen(false)} className="block text-textMuted hover:text-accent">Innovation Lab</Link>
               <Link href="/process" onClick={() => setMobileOpen(false)} className="block text-textMuted hover:text-accent">Process</Link>
               <details className="group">
                 <summary className="list-none cursor-pointer text-textMuted">Insights</summary>
