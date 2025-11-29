@@ -93,3 +93,13 @@ body { @apply bg-[color:var(--dark)] text-[color:var(--text)] leading-relaxed ov
   animation: floatChaos 4s ease-in-out infinite;
 }
 
+@keyframes scan {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+@keyframes particleFloat {
+  from { transform: translateY(100vh) scale(0); }
+  to { transform: translateY(-10vh) scale(1); }
+}
+
