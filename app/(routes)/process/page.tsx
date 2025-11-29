@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { Clock, CurrencyDollar, Target, X, RocketLaunch, Sparkle, Lightning, ShieldCheck, Hammer, FlagCheckered, Check, SquaresFour, Wrench } from '@/components/icons/PhosphorIcons';
+import { Clock, CurrencyDollar, Target, X, RocketLaunch, Sparkle, Lightning, ShieldCheck, Check, SquaresFour, Wrench } from '@/components/icons/PhosphorIcons';
 
 export default function ProcessPage() {
   const painPointsRef = useRef<(HTMLElement | null)[]>([]);

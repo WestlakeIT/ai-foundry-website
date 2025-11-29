@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import Card from '@/components/ui/Card';
 import FAQ from '@/components/sections/FAQ';
 import Link from 'next/link';
 import { ChartLineUp, SquaresFour, FileText, Handshake, DeviceMobile } from '@/components/icons/PhosphorIcons';
