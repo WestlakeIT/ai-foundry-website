@@ -129,7 +129,7 @@ export default function ForEnterprisePage() {
                 1
               </div>
               <h3 className="text-accent text-2xl font-bold mb-4">Zero-Disruption Development</h3>
-              <p className="text-[#e5e7eb] leading-relaxed mb-6">Build tomorrow's AI while today's systems run perfectly</p>
+              <p className="text-[#e5e7eb] leading-relaxed mb-6">Build tomorrow&apos;s AI while today&apos;s systems run perfectly</p>
               <ul className="list-none space-y-2">
                 <li className="text-textMuted flex items-start gap-2">
                   <span className="text-accent font-bold flex-shrink-0">✓</span>
