@@ -24,4 +24,6 @@ export { Sparkle } from "@phosphor-icons/react";
 export { DeviceMobile } from "@phosphor-icons/react";
 export { FileText } from "@phosphor-icons/react";
 export { ChartLineUp } from "@phosphor-icons/react";
+export { Clock } from "@phosphor-icons/react";
+export { CurrencyDollar } from "@phosphor-icons/react";
 
