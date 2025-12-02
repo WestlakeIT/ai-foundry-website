@@ -28,5 +28,5 @@ export { Clock } from "@phosphor-icons/react";
 export { CurrencyDollar } from "@phosphor-icons/react";
 export { Smiley } from "@phosphor-icons/react";
 export { Envelope } from "@phosphor-icons/react";
-export { CircleCheck } from "@phosphor-icons/react";
+export { CheckCircle } from "@phosphor-icons/react";
 

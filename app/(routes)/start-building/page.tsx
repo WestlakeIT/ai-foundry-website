@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { Smiley, Envelope, CircleCheck } from '@/components/icons/PhosphorIcons';
+import { Smiley, Envelope, CheckCircle } from '@/components/icons/PhosphorIcons';
 
 type PersonaType = 'founder' | 'enterprise' | 'innovator' | null;
 
@@ -51,8 +51,12 @@ export default function StartBuildingPage() {
 
       if (!response.ok) {
         const error = await response.json();
+        interface ErrorDetail {
+          message?: string;
+          field?: string;
+        }
         const errorMessage = error.details 
-          ? `Validation failed: ${error.details.map((d: any) => d.message || `${d.field}: ${d.message}`).join(', ')}`
+          ? `Validation failed: ${error.details.map((d: ErrorDetail) => d.message || `${d.field}: ${d.message}`).join(', ')}`
           : error.error || 'Submission failed';
         throw new Error(errorMessage);
       }
@@ -91,7 +95,7 @@ export default function StartBuildingPage() {
           {submitSuccess ? (
             <div className="p-5 bg-gradient-to-r from-[rgba(0,255,136,0.2)] to-[rgba(0,212,255,0.2)] border border-[#00ff88] rounded-xl text-center animate-fadeInUp">
               <div className="flex items-center justify-center gap-2 mb-2">
-                <CircleCheck size={24} weight="fill" className="text-[#00ff88]" />
+                <CheckCircle size={24} weight="fill" className="text-[#00ff88]" />
                 <h3 className="text-xl font-semibold">Application Received!</h3>
               </div>
               <p>Our team will review and send you a detailed sprint proposal within 48 hours.</p>

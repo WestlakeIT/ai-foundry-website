@@ -27,6 +27,7 @@ export default function Navbar() {
             src="/w-ai-logo.svg"
             alt="Westlake AI Logo"
             className="header-logo"
+            loading="eager"
           />
           <span className="logo text-3xl md:text-4xl font-extrabold tracking-tight bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent drop-shadow-[0_0_7px_rgba(255,255,255,0.21)]">
             WESTLAKE AI FOUNDRY
