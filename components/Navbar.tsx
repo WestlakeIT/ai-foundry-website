@@ -22,8 +22,15 @@ export default function Navbar() {
       } fixed top-0 z-50 w-full backdrop-blur-md transition-all`}
     >
       <div className="mx-auto flex max-w-[1600px] items-center justify-between px-8">
-        <Link href="/" className="logo text-3xl md:text-4xl font-extrabold tracking-tight bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent drop-shadow-[0_0_7px_rgba(255,255,255,0.21)]">
-          WESTLAKE AI FOUNDRY
+        <Link href="/" className="flex items-center gap-4">
+          <img
+            src="/w-ai-logo.svg"
+            alt="Westlake AI Logo"
+            className="header-logo"
+          />
+          <span className="logo text-3xl md:text-4xl font-extrabold tracking-tight bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent drop-shadow-[0_0_7px_rgba(255,255,255,0.21)]">
+            WESTLAKE AI FOUNDRY
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-10 md:flex text-[1.15rem]">

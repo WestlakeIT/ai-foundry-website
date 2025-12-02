@@ -12,6 +12,14 @@
   filter: brightness(1.2);
 }
 
+.header-logo {
+  width: 104px !important;
+  height: 72px !important;
+  max-width: 104px !important;
+  max-height: 72px !important;
+  display: block !important;
+}
+
 .scroll-arrow {
   display: block;
   width: 12px;
