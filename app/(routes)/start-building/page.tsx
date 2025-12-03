@@ -85,7 +85,7 @@ export default function StartBuildingPage() {
               Start Your AI Journey With Us
             </h1>
             <p className="text-[#94a3b8] text-lg">
-              Let&apos;s explore how AI can transform your business
+              Tell us about your vision. We&apos;re genuinely excited to listen.
             </p>
           </div>
         </section>
@@ -394,11 +394,11 @@ export default function StartBuildingPage() {
                   Don&apos;t feel like filling out a form? Just type — we get it. <Smiley size={20} weight="regular" className="inline-block ml-1 text-[#00d4ff]" />
                 </p>
                 <p className="text-[#94a3b8] text-base mb-4">
-                  Whether your idea is <span className="text-[#00ff88] font-semibold">still forming or already in motion</span>, we approach every message with <span className="text-[#00d4ff] font-semibold">respect, curiosity, and zero assumptions</span>. No concept is <span className="text-[#00ff88] font-semibold">too small, too early, or too experimental</span>. If you&apos;re thinking about building something with AI, we&apos;ll help you <span className="text-[#00d4ff] font-semibold">shape it, refine it</span>, and guide you toward the next step. <span className="text-[#00ff88] font-semibold">Just reach out</span> — we&apos;re here to support you.
+                  Whether your idea is still forming or already in motion, we approach every message with respect, curiosity, and zero assumptions. No concept is too small, too early, or too experimental. If you&apos;re thinking about building something with AI, we&apos;ll help you shape it, refine it, and guide you toward the next step. Just reach out — we&apos;re here to support you.
                 </p>
                 <p className="text-[#e2e8f0] text-base flex items-center gap-2">
                   <Envelope size={20} weight="regular" className="text-[#00d4ff]" />
-                  <span>Email us anytime: <a href="mailto:aifoundry@westlakeitsolutions.com" className="text-[#00ff88] hover:text-[#00d4ff] transition-colors underline">aifoundry@westlakeitsolutions.com</a></span>
+                  <span>Email us anytime: <a href="mailto:initiatives@westl.ai" className="text-[#00ff88] hover:text-[#00d4ff] transition-colors underline">initiatives@westl.ai</a></span>
                 </p>
               </div>
             </form>

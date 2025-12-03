@@ -29,8 +29,8 @@ export default function Navbar() {
             className="header-logo"
             loading="eager"
           />
-          <span className="logo text-3xl md:text-4xl font-extrabold tracking-tight bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent drop-shadow-[0_0_7px_rgba(255,255,255,0.21)]">
-            WESTLAKE AI FOUNDRY
+          <span className="logo text-3xl md:text-4xl font-extrabold tracking-tight bg-gradient-to-r from-[#4ade80] via-[#22d3ee] to-[#60a5fa] bg-clip-text text-transparent" style={{ textShadow: '0 0 10px rgba(74, 222, 128, 0.3), 0 0 20px rgba(34, 211, 238, 0.2), 0 0 30px rgba(96, 165, 250, 0.15)' }}>
+            WESTLAKE      AI      FOUNDRY
           </span>
         </Link>
 
