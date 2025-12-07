@@ -93,12 +93,20 @@ export default function StartBuildingPage() {
         {/* Form Container */}
         <div className="bg-[rgba(30,41,82,0.6)] border border-[rgba(0,212,255,0.2)] rounded-3xl p-10 md:p-12 backdrop-blur-md max-w-4xl mx-auto">
           {submitSuccess ? (
-            <div className="p-5 bg-gradient-to-r from-[rgba(0,255,136,0.2)] to-[rgba(0,212,255,0.2)] border border-[#00ff88] rounded-xl text-center animate-fadeInUp">
-              <div className="flex items-center justify-center gap-2 mb-2">
-                <CheckCircle size={24} weight="fill" className="text-[#00ff88]" />
-                <h3 className="text-xl font-semibold">Application Received!</h3>
+            <div className="p-8 bg-gradient-to-r from-[rgba(0,255,136,0.2)] to-[rgba(0,212,255,0.2)] border border-[#00ff88] rounded-xl text-center animate-fadeInUp">
+              <div className="flex items-center justify-center gap-2 mb-4">
+                <CheckCircle size={28} weight="fill" className="text-[#00ff88]" />
+                <h3 className="text-2xl font-semibold">Thank you — we&apos;re excited to explore this with you</h3>
               </div>
-              <p>Our team will review and send you a detailed sprint proposal within 48 hours.</p>
+              <p className="text-[#e2e8f0] leading-relaxed mb-6">
+                Thank you for sharing your vision with us. Our team will carefully review your details and reach out to discuss next steps and explore how we can work together. We appreciate the opportunity to learn about your goals and look forward to a thoughtful conversation.
+              </p>
+              <div className="pt-4 border-t border-[rgba(148,163,184,0.3)]">
+                <p className="text-[#94a3b8] mb-2">You can also reach us directly at:</p>
+                <a href="mailto:initiatives@westl.ai" className="text-[#00ff88] hover:text-[#00d4ff] transition-colors text-lg font-medium">
+                  initiatives@westl.ai
+                </a>
+              </div>
             </div>
           ) : (
             <form onSubmit={handleSubmit}>

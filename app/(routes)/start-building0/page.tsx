@@ -311,9 +311,17 @@ export default function StartBuildingPage() {
                 Start Your Discovery Sprint
               </h2>
               {submitSuccess === 'discovery' ? (
-                <div className="p-5 bg-gradient-to-r from-[rgba(0,255,136,0.2)] to-[rgba(0,212,255,0.2)] border border-[#00ff88] rounded-xl text-center animate-fadeInUp">
-                  <h3 className="text-xl font-semibold mb-2">🚀 Sprint Application Received!</h3>
-                  <p>Our team will review and send you a detailed sprint proposal within 48 hours.</p>
+                <div className="p-8 bg-gradient-to-r from-[rgba(0,255,136,0.2)] to-[rgba(0,212,255,0.2)] border border-[#00ff88] rounded-xl text-center animate-fadeInUp">
+                  <h3 className="text-2xl font-semibold mb-4">Thank you — we&apos;re excited to explore this with you</h3>
+                  <p className="text-[#e2e8f0] leading-relaxed mb-6">
+                    Thank you for sharing your vision with us. Our team will carefully review your details and reach out to discuss next steps and explore how we can work together. We appreciate the opportunity to learn about your goals and look forward to a thoughtful conversation.
+                  </p>
+                  <div className="pt-4 border-t border-[rgba(148,163,184,0.3)]">
+                    <p className="text-[#94a3b8] mb-2">You can also reach us directly at:</p>
+                    <a href="mailto:initiatives@westl.ai" className="text-[#00ff88] hover:text-[#00d4ff] transition-colors text-lg font-medium">
+                      initiatives@westl.ai
+                    </a>
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={(e) => handleSubmit(e, 'discovery')}>
